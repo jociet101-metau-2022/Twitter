@@ -31,9 +31,6 @@
     self.tweetField.text = self.placeholderText;
     self.tweetField.textColor = [UIColor lightGrayColor];
     self.tweetField.returnKeyType = UIReturnKeyDone;
-
-//    [self.tweetField setPlaceholder:@"Compose Tweet"];
-
 }
 
 #pragma mark - Compose tweet placeholder text
@@ -62,7 +59,21 @@
 }
 
 - (IBAction)publishTweet:(id)sender {
-//    postStatusWithText
+    
+    NSString* tweetBody = self.tweetField.text;
+    
+    APIManager* manager = [APIManager new];
+    [manager postStatusWithText:(NSString *)tweetBody completion:^(Tweet *tweet, NSError *error) {
+        
+        if (error != nil) {
+            NSString* errorName = [NSString stringWithFormat:@"%@", [error localizedDescription]];
+            NSLog(@"%@", errorName);
+        }
+        else {
+            NSLog(@"tweet successfully published");
+            [self dismissViewControllerAnimated:true completion:nil];
+        }
+    }];
 }
 
 - (IBAction)closeEditing:(id)sender {

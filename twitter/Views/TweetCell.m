@@ -21,4 +21,20 @@
     // Configure the view for the selected state
 }
 
+- (void)setTweet:(Tweet *)tweet {
+    _tweet = tweet;
+    
+    self.nameLabel.text = self.tweet.user.name;
+    self.handleLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
+    self.dateLabel.text = self.tweet.createdAtString;
+    self.tweetLabel.text = self.tweet.text;
+    self.numHeartLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.numRetweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+
+    NSString *URLString = tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    [self.profileImage setImage:[UIImage imageWithData:urlData]];
+}
+
 @end

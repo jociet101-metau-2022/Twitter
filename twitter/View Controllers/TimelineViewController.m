@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) NSMutableArray* arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -28,9 +29,16 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
+    
+    [self fetchData];
+}
+
+- (void)fetchData {
     
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
@@ -45,9 +53,12 @@
             NSLog(@"Got all the tweets");
             
             [self.tableView reloadData];
+            
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
+        
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -69,22 +80,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-        
-    Tweet* tweet = self.arrayOfTweets[indexPath.row];
-
+    
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
-    cell.nameLabel.text = tweet.user.name;
-    cell.handleLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
-    cell.dateLabel.text = tweet.createdAtString;
-    cell.tweetLabel.text = tweet.text;
-    cell.numHeartLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-    cell.numRetweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
-
-    NSString *URLString = tweet.user.profilePicture;
-    NSURL *url = [NSURL URLWithString:URLString];
-    NSData *urlData = [NSData dataWithContentsOfURL:url];
-    [cell.profileImage setImage:[UIImage imageWithData:urlData]];
+    cell.tweet = self.arrayOfTweets[indexPath.row];
     
     return cell;
 }

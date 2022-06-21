@@ -72,7 +72,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     cell.nameLabel.text = tweet.user.name;
-    cell.handleLabel.text = tweet.user.screenName;
+    cell.handleLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
     cell.dateLabel.text = tweet.createdAtString;
     cell.tweetLabel.text = tweet.text;
     cell.numHeartLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
@@ -81,7 +81,7 @@
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
-//    cell.profileImage.image = [UIImage imageWithData:urlData];
+    [cell.profileImage setImage:[UIImage imageWithData:urlData]];
     
     return cell;
 }

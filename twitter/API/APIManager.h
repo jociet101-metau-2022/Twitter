@@ -15,4 +15,8 @@
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
 
+//- (void)getUserTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
+//- (void)favoriteTweet:(void(^)(NSArray *tweets, NSError *error))completion;
+//- (void)retweet:(void(^)(NSArray *tweets, NSError *error))completion;
+
 @end

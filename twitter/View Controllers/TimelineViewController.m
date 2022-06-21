@@ -33,17 +33,19 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
+            for (Tweet* dictionary in tweets) {
+                NSString *text = dictionary.text;
                 NSLog(@"%@", text);
             }
             self.arrayOfTweets = (NSMutableArray*)tweets;
+            
+            NSLog(@"Got all the tweets");
+            
+            [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
-    
-    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,13 +66,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-//    UITableViewCell* cell = [[UITableViewCell alloc] init];
-    
+        
     Tweet* tweet = self.arrayOfTweets[indexPath.row];
 
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
-
+    
     cell.nameLabel.text = tweet.user.name;
     cell.handleLabel.text = tweet.user.screenName;
     cell.dateLabel.text = tweet.createdAtString;
@@ -81,7 +81,7 @@
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
-    cell.profileImage.image = [UIImage imageWithData:urlData];
+//    cell.profileImage.image = [UIImage imageWithData:urlData];
     
     return cell;
 }

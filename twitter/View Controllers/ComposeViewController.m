@@ -33,11 +33,8 @@
     self.firstTimeEditing = YES;
 
     self.tweetField.delegate = self;
-    
     self.tweetField.textColor = [UIColor blackColor];
-    
     self.tweetField.returnKeyType = UIReturnKeyDone;
-//    [self.tweetField becomeFirstResponder];
     
     [self resetTweetButton];
     
@@ -92,18 +89,36 @@
     
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
+        return true;
     }
     
     return true;
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
+
+    int characterLimit = 280;
+
+    // Construct what the new text would be if we allowed the user's latest edit
+//    NSString *newText = [self.tweetField.text stringByReplacingCharactersInRange:range withString:text];
+
+    long numCharsInt = [self.tweetField.text length];
     
-    if (self.firstTimeEditing) {
-        self.numChars.text = @"0";
+    // Update character count label
+    self.numChars.text = [NSString stringWithFormat:@"%lu", numCharsInt];
+    
+    NSLog(self.numChars.text);
+
+    // Should the new text should be allowed? True/False
+    BOOL textAllowed = numCharsInt <= characterLimit;
+    
+    if (textAllowed == NO) {
+        self.numChars.textColor = [UIColor redColor];
+        [self resetTweetButton];
     }
     else {
-        self.numChars.text = [NSString stringWithFormat:@"%lu", [self.tweetField.text length]];
+        self.numChars.textColor = [UIColor blackColor];
+        self.tweetButt.tintColor = [UIColor systemBlueColor];
     }
 }
 

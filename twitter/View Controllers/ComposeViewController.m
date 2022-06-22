@@ -13,7 +13,6 @@
 @interface ComposeViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *tweetField;
-@property (weak, nonatomic) NSString* placeholderText;
 @property (weak, nonatomic) NSString* emptyText;
 @property (assign, nonatomic) BOOL firstTimeEditing;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
@@ -29,20 +28,18 @@
     [super viewDidLoad];
 
     // Initializing constant variables
-//    self.placeholderText = @"What's happening?";
-    self.placeholderText = @"";
     self.emptyText = @"";
     
     self.firstTimeEditing = YES;
 
     self.tweetField.delegate = self;
     
-    self.tweetField.text = self.placeholderText;
-    self.tweetField.textColor = [UIColor lightGrayColor];
-    self.tweetField.returnKeyType = UIReturnKeyDefault;
-    [self.tweetField becomeFirstResponder];
+    self.tweetField.textColor = [UIColor blackColor];
     
-    [self resetCursor];
+    self.tweetField.returnKeyType = UIReturnKeyDone;
+//    [self.tweetField becomeFirstResponder];
+    
+    [self resetTweetButton];
     
     [[APIManager shared] getCredentialsWithCompletion:^(Profile* profile, NSError* error) {
          if(error){
@@ -60,43 +57,53 @@
 
 #pragma mark - Compose tweet placeholder text
 
-- (void)resetCursor {
-    UITextPosition* pos = [self.tweetField beginningOfDocument];
-    UITextRange* range = [self.tweetField textRangeFromPosition:pos toPosition:pos];
-    [self.tweetField setSelectedTextRange:range];
-    
-//    [self.tweetButt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
+- (void)resetTweetButton {
     self.tweetButt.tintColor = [UIColor lightGrayColor];
 }
 
-- (void)textViewDidChange:(UITextView *)textView {
-//    NSLog(@"text view did change");
-    
-    if (self.firstTimeEditing) {
-        self.numChars.text = @"0";
-    }
-    else {
-        self.numChars.text = [NSString stringWithFormat:@"%lu", [self.tweetField.text length]];
-    }
+//- (void)
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
     
     if (self.firstTimeEditing) {
         self.firstTimeEditing = NO;
         
         self.placeholderLabel.alpha = 0;
         
-        textView.text = self.emptyText;
-        textView.textColor = [UIColor blackColor];
         self.tweetButt.tintColor = [UIColor systemBlueColor];
     }
-    else if ([textView.text isEqualToString:self.emptyText]) {
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    
+    if ([textView.text isEqualToString:self.emptyText]) {
         
         self.placeholderLabel.alpha = 1;
         
-        textView.text = self.placeholderText;
-        textView.textColor = [UIColor lightGrayColor];
-        [self resetCursor];
+        [self resetTweetButton];
         self.firstTimeEditing = YES;
+    }
+    
+    [textView endEditing:YES];
+    [textView resignFirstResponder];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+    }
+    
+    return true;
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    
+    if (self.firstTimeEditing) {
+        self.numChars.text = @"0";
+    }
+    else {
+        self.numChars.text = [NSString stringWithFormat:@"%lu", [self.tweetField.text length]];
     }
 }
 

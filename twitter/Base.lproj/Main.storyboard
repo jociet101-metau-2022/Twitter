@@ -140,9 +140,8 @@
                                                                 <action selector="didTapRetweet:" destination="3C0-ba-DJe" eventType="touchUpInside" id="NMs-lV-3ZW"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTw-9N-wC4" userLabel="Message Button">
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTw-9N-wC4" userLabel="Message Button">
                                                             <rect key="frame" x="229" y="-1" width="28" height="27"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="message-icon"/>
                                                         </button>
@@ -163,6 +162,9 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="YTw-9N-wC4" secondAttribute="trailing" id="BoR-x5-V0F"/>
+                                                    </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@capamerica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-QM-Ria">
                                                     <rect key="frame" x="205.5" y="10" width="76.5" height="15"/>
@@ -273,6 +275,13 @@
                                 <rect key="frame" x="8" y="82" width="65" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1S-oE-VZe">
+                                <rect key="frame" x="310" y="323" width="42" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ggi-TL-Kfb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -290,7 +299,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="numChars" destination="d1S-oE-VZe" id="GEX-b8-Nnh"/>
                         <outlet property="profileImage" destination="VAs-Vy-fau" id="8gK-6N-V4N"/>
+                        <outlet property="tweetButt" destination="goh-nt-Trw" id="VJd-cp-CFY"/>
                         <outlet property="tweetField" destination="Uty-xM-uQX" id="ZGU-FM-hmd"/>
                     </connections>
                 </viewController>

@@ -30,14 +30,16 @@
 }
 
 - (void)setTweet:(Tweet *)tweet {
+    NSLog(@"set tweet called");
+    
     _tweet = tweet;
     
     self.nameLabel.text = self.tweet.user.name;
     self.handleLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
     self.dateLabel.text = self.tweet.createdAtString;
     self.tweetLabel.text = self.tweet.text;
-    self.numHeartLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
-    self.numRetweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    
+    [self refreshUI];
 
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
@@ -45,27 +47,53 @@
     [self.profileImage setImage:[UIImage imageWithData:urlData]];
 }
 
+- (void)refreshUI {
+    
+    UIImage *tImg;
+    
+    if (self.tweet.favorited == YES) {
+        NSLog(@"FAVORITED");
+        tImg = [UIImage imageNamed:@"favor-icon-red.png"];
+    }
+    else {
+        NSLog(@"NOT FAVORITED");
+        tImg = [UIImage imageNamed:@"favor-icon.png"];
+    }
+    
+    self.numHeartLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    [self.heartButt setImage:tImg forState:UIControlStateNormal];
+    
+    UIImage *rImg;
+    
+    if (self.tweet.retweeted == YES) {
+        NSLog(@"RETWEETED");
+        rImg = [UIImage imageNamed:@"retweet-icon-green.png"];
+    }
+    else {
+        NSLog(@"NOT RETWEETED");
+        rImg = [UIImage imageNamed:@"retweet-icon.png"];
+    }
+    
+    self.numRetweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    [self.retweetButt setImage:rImg forState:UIControlStateNormal];
+}
+
 - (IBAction)didTapFavorite:(id)sender {
     NSLog(@"Tapped favorite");
     
     // Update the local tweet model
-    UIImage *img;
     
     if (self.tweet.favorited == NO) {
         self.tweet.favorited = YES;
         self.tweet.favoriteCount += 1;
-        img = [UIImage imageNamed:@"favor-icon-red.png"];
     }
     else {
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
-        img = [UIImage imageNamed:@"favor-icon.png"];
     }
     
     // Update cell UI
-    self.numHeartLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
-    [self.heartButt setImage:img forState:UIControlStateNormal];
-    
+    [self refreshUI];
     
     // Send a POST request to the POST favorites/create endpoint
     APIManager* manager = [APIManager shared];
@@ -96,22 +124,18 @@
     NSLog(@"Tapped retweet");
     
     // Update the local tweet model
-    UIImage *img;
     
     if (self.tweet.retweeted == NO) {
         self.tweet.retweeted = YES;
         self.tweet.retweetCount += 1;
-        img = [UIImage imageNamed:@"retweet-icon-green.png"];
     }
     else {
         self.tweet.retweeted = NO;
         self.tweet.retweetCount -= 1;
-        img = [UIImage imageNamed:@"retweet-icon.png"];
     }
     
     // Update cell UI
-    self.numRetweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
-    [self.retweetButt setImage:img forState:UIControlStateNormal];
+    [self refreshUI];
     
     // Send a POST request to the POST favorites/create endpoint
     APIManager* manager = [APIManager shared];

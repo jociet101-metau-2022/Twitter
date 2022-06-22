@@ -17,6 +17,8 @@
 @property (weak, nonatomic) NSString* emptyText;
 @property (assign, nonatomic) BOOL firstTimeEditing;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *tweetButt;
+@property (weak, nonatomic) IBOutlet UILabel *numChars;
 
 @end
 
@@ -60,15 +62,21 @@
     UITextPosition* pos = [self.tweetField beginningOfDocument];
     UITextRange* range = [self.tweetField textRangeFromPosition:pos toPosition:pos];
     [self.tweetField setSelectedTextRange:range];
+    
+//    [self.tweetButt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    self.tweetButt.tintColor = [UIColor lightGrayColor];
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
 //    NSLog(@"text view did change");
+    self.numChars.text = [NSString stringWithFormat:@"%lu", [self.tweetField.text length]];
     
     if (self.firstTimeEditing) {
         self.firstTimeEditing = NO;
         textView.text = self.emptyText;
         textView.textColor = [UIColor blackColor];
+        self.tweetButt.tintColor = [UIColor systemBlueColor];
     }
     else if ([textView.text isEqualToString:self.emptyText]) {
         textView.text = self.placeholderText;

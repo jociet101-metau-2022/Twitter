@@ -70,7 +70,10 @@
             NSLog(@"%@", errorName);
         }
         else {
+            [self.delegate didTweet:tweet];
+            
             NSLog(@"tweet successfully published");
+            
             [self dismissViewControllerAnimated:true completion:nil];
         }
     }];

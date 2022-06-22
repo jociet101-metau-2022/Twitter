@@ -13,8 +13,9 @@
 #import "TweetCell.h"
 #import "User.h"
 #import "Tweet.h"
+#import "ComposeViewController.h"
 
-@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray* arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -44,10 +45,10 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (Tweet* dictionary in tweets) {
-                NSString *text = dictionary.text;
-                NSLog(@"%@", text);
-            }
+//            for (Tweet* dictionary in tweets) {
+//                NSString *text = dictionary.text;
+//                NSLog(@"%@", text);
+//            }
             self.arrayOfTweets = (NSMutableArray*)tweets;
             
             NSLog(@"Got all the tweets");
@@ -60,6 +61,13 @@
         
         [self.refreshControl endRefreshing];
     }];
+}
+
+- (void)didTweet:(Tweet *)tweet {
+    NSLog(@"\n\nDID TWEET!\n\n");
+    
+//    [self.tableView reloadData];
+    [self fetchData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,15 +105,13 @@
 }
 
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    UINavigationController *navigationController = [segue destinationViewController];
+    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+    composeController.delegate = self;
 }
-*/
 
 
 @end

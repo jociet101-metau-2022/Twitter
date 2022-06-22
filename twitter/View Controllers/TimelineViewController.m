@@ -14,6 +14,7 @@
 #import "User.h"
 #import "Tweet.h"
 #import "ComposeViewController.h"
+#import "TweetDetailsViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -58,7 +59,6 @@
 }
 
 - (void)didTweet:(Tweet *)tweet {
-    NSLog(@"\n\nDID TWEET!\n\n");
     [self fetchData];
 }
 
@@ -100,10 +100,22 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    
+    NSString* senderType = [NSString stringWithFormat:@"%@", [sender class]];
+    
+    if ([senderType isEqualToString:@"UIButton"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+    else if ([senderType isEqualToString:@"TweetCell"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        Tweet* data = self.arrayOfTweets[indexPath.row];
+        TweetDetailsViewController *detailVC = [segue destinationViewController];
+        detailVC.incomingData = data;
+    }
 }
-
 
 @end

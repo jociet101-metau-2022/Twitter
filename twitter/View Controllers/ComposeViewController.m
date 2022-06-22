@@ -100,14 +100,10 @@
     int characterLimit = 280;
 
     // Construct what the new text would be if we allowed the user's latest edit
-//    NSString *newText = [self.tweetField.text stringByReplacingCharactersInRange:range withString:text];
-
     long numCharsInt = [self.tweetField.text length];
     
     // Update character count label
     self.numChars.text = [NSString stringWithFormat:@"%lu", numCharsInt];
-    
-    NSLog(self.numChars.text);
 
     // Should the new text should be allowed? True/False
     BOOL textAllowed = numCharsInt <= characterLimit;

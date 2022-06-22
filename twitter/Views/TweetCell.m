@@ -30,7 +30,6 @@
 }
 
 - (void)setTweet:(Tweet *)tweet {
-    NSLog(@"set tweet called");
     
     _tweet = tweet;
     
@@ -52,11 +51,9 @@
     UIImage *tImg;
     
     if (self.tweet.favorited == YES) {
-        NSLog(@"FAVORITED");
         tImg = [UIImage imageNamed:@"favor-icon-red.png"];
     }
     else {
-        NSLog(@"NOT FAVORITED");
         tImg = [UIImage imageNamed:@"favor-icon.png"];
     }
     
@@ -66,11 +63,9 @@
     UIImage *rImg;
     
     if (self.tweet.retweeted == YES) {
-        NSLog(@"RETWEETED");
         rImg = [UIImage imageNamed:@"retweet-icon-green.png"];
     }
     else {
-        NSLog(@"NOT RETWEETED");
         rImg = [UIImage imageNamed:@"retweet-icon.png"];
     }
     
@@ -79,7 +74,6 @@
 }
 
 - (IBAction)didTapFavorite:(id)sender {
-    NSLog(@"Tapped favorite");
     
     // Update the local tweet model
     
@@ -121,7 +115,6 @@
 }
 
 - (IBAction)didTapRetweet:(id)sender {
-    NSLog(@"Tapped retweet");
     
     // Update the local tweet model
     

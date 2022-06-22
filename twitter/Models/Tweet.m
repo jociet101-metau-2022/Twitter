@@ -46,6 +46,16 @@
         formatter.timeStyle = NSDateFormatterNoStyle;
         // Convert Date to String
         self.createdAtString = [formatter stringFromDate:date];
+        
+        // Format details date string
+        NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+        formatter2.dateFormat = @"MM-dd-yy HH:mm";
+        NSDate *date2 = [formatter2 dateFromString:createdAtOriginalString];
+        // Configure output format
+        formatter2.dateStyle = NSDateFormatterShortStyle;
+        formatter2.timeStyle = NSDateFormatterShortStyle;
+        // Convert Date to String
+        self.dateForDetails = [formatter2 stringFromDate:date2];
     }
     return self;
 }

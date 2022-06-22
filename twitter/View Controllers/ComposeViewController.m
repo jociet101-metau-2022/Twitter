@@ -23,7 +23,7 @@
     [super viewDidLoad];
 
     // Initializing constant variables
-    self.placeholderText = @"Compose tweet";
+    self.placeholderText = @"What's happening?";
     self.emptyText = @"";
 
     self.tweetField.delegate = self;

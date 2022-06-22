@@ -45,13 +45,7 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-//            for (Tweet* dictionary in tweets) {
-//                NSString *text = dictionary.text;
-//                NSLog(@"%@", text);
-//            }
             self.arrayOfTweets = (NSMutableArray*)tweets;
-            
-            NSLog(@"Got all the tweets");
             
             [self.tableView reloadData];
             
@@ -65,8 +59,6 @@
 
 - (void)didTweet:(Tweet *)tweet {
     NSLog(@"\n\nDID TWEET!\n\n");
-    
-//    [self.tableView reloadData];
     [self fetchData];
 }
 

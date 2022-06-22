@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tweetButt;
 @property (weak, nonatomic) IBOutlet UILabel *numChars;
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 
 @end
 
@@ -28,7 +29,8 @@
     [super viewDidLoad];
 
     // Initializing constant variables
-    self.placeholderText = @"What's happening?";
+//    self.placeholderText = @"What's happening?";
+    self.placeholderText = @"";
     self.emptyText = @"";
     
     self.firstTimeEditing = YES;
@@ -70,15 +72,27 @@
 
 - (void)textViewDidChange:(UITextView *)textView {
 //    NSLog(@"text view did change");
-    self.numChars.text = [NSString stringWithFormat:@"%lu", [self.tweetField.text length]];
+    
+    if (self.firstTimeEditing) {
+        self.numChars.text = @"0";
+    }
+    else {
+        self.numChars.text = [NSString stringWithFormat:@"%lu", [self.tweetField.text length]];
+    }
     
     if (self.firstTimeEditing) {
         self.firstTimeEditing = NO;
+        
+        self.placeholderLabel.alpha = 0;
+        
         textView.text = self.emptyText;
         textView.textColor = [UIColor blackColor];
         self.tweetButt.tintColor = [UIColor systemBlueColor];
     }
     else if ([textView.text isEqualToString:self.emptyText]) {
+        
+        self.placeholderLabel.alpha = 1;
+        
         textView.text = self.placeholderText;
         textView.textColor = [UIColor lightGrayColor];
         [self resetCursor];

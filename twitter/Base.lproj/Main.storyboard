@@ -282,6 +282,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's Happening" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATt-lF-uiM">
+                                <rect key="frame" x="86" y="89" width="139" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ggi-TL-Kfb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -300,6 +307,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="numChars" destination="d1S-oE-VZe" id="GEX-b8-Nnh"/>
+                        <outlet property="placeholderLabel" destination="ATt-lF-uiM" id="imF-MR-9Q1"/>
                         <outlet property="profileImage" destination="VAs-Vy-fau" id="8gK-6N-V4N"/>
                         <outlet property="tweetButt" destination="goh-nt-Trw" id="VJd-cp-CFY"/>
                         <outlet property="tweetField" destination="Uty-xM-uQX" id="ZGU-FM-hmd"/>

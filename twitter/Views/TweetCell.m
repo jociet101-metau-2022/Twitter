@@ -81,7 +81,6 @@
          }];
     }
     else {
-        APIManager* manager = [APIManager shared];
         [manager unFavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
                   NSLog(@"Error unfavoriting tweet: %@", error.localizedDescription);
@@ -128,7 +127,6 @@
          }];
     }
     else {
-        APIManager* manager = [APIManager shared];
         [manager unRetweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
              if(error){
                   NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);

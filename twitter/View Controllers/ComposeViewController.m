@@ -8,12 +8,14 @@
 
 #import "ComposeViewController.h"
 #import "APIManager.h"
+#import "Profile.h"
 
 @interface ComposeViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *tweetField;
 @property (weak, nonatomic) NSString* placeholderText;
 @property (weak, nonatomic) NSString* emptyText;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 
 @end
 
@@ -31,6 +33,19 @@
     self.tweetField.text = self.placeholderText;
     self.tweetField.textColor = [UIColor lightGrayColor];
     self.tweetField.returnKeyType = UIReturnKeyDone;
+    
+    [[APIManager shared] getCredentialsWithCompletion:^(Profile* profile, NSError* error) {
+         if(error){
+              NSLog(@"Error getting credentials: %@", error.localizedDescription);
+         }
+         else{
+             NSLog(@"Successfully got credentials");
+             
+             NSURL *url = [NSURL URLWithString:profile.profileImgUrl];
+             NSData *urlData = [NSData dataWithContentsOfURL:url];
+             [self.profileImage setImage:[UIImage imageWithData:urlData]];
+         }
+     }];
 }
 
 #pragma mark - Compose tweet placeholder text

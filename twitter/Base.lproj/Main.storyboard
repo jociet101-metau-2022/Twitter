@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--Home Timeline-->
+        <!--Timeline View Controller-->
         <scene sceneID="1Tv-nE-1AW">
             <objects>
                 <viewController storyboardIdentifier="TimelineViewController" id="Lbl-k5-U4i" customClass="TimelineViewController" sceneMemberID="viewController">
@@ -164,8 +164,8 @@
                                                         </button>
                                                     </subviews>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="@capamerica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-QM-Ria">
-                                                    <rect key="frame" x="207" y="10" width="82" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@capamerica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyk-QM-Ria">
+                                                    <rect key="frame" x="205.5" y="10" width="76.5" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -177,6 +177,7 @@
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OOE-1c-TCK" secondAttribute="bottom" constant="20" id="7V6-w7-0EA"/>
                                                 <constraint firstItem="hTf-b8-rgz" firstAttribute="top" secondItem="fws-Nt-YwY" secondAttribute="top" constant="8" id="DXB-xT-QdR"/>
                                                 <constraint firstAttribute="trailing" secondItem="Uu8-Uu-GES" secondAttribute="trailing" constant="42" id="FCt-3Q-pWU"/>
+                                                <constraint firstAttribute="trailing" secondItem="Og2-bP-h9U" secondAttribute="trailing" constant="42" id="Hym-Pl-b0b"/>
                                                 <constraint firstItem="Uu8-Uu-GES" firstAttribute="leading" secondItem="hTf-b8-rgz" secondAttribute="trailing" constant="8" id="Jsx-VA-sap"/>
                                                 <constraint firstItem="hTf-b8-rgz" firstAttribute="leading" secondItem="fws-Nt-YwY" secondAttribute="leading" constant="8" id="LYe-D9-OBd"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hTf-b8-rgz" secondAttribute="bottom" constant="50" id="Oy7-dC-Vxz"/>
@@ -184,7 +185,6 @@
                                                 <constraint firstItem="Og2-bP-h9U" firstAttribute="top" secondItem="fws-Nt-YwY" secondAttribute="top" constant="10" id="ScJ-OD-HnS"/>
                                                 <constraint firstItem="VLt-ck-JNt" firstAttribute="bottom" secondItem="Uu8-Uu-GES" secondAttribute="top" constant="1" id="Tj4-W4-XZ7"/>
                                                 <constraint firstItem="Og2-bP-h9U" firstAttribute="leading" secondItem="Vyk-QM-Ria" secondAttribute="trailing" constant="8" id="bfm-Vi-UI1"/>
-                                                <constraint firstItem="Vyk-QM-Ria" firstAttribute="leading" secondItem="VLt-ck-JNt" secondAttribute="trailing" constant="3" id="cJJ-hq-rwa"/>
                                                 <constraint firstItem="VLt-ck-JNt" firstAttribute="leading" secondItem="hTf-b8-rgz" secondAttribute="trailing" constant="8" id="e4r-rd-KK2"/>
                                                 <constraint firstItem="VLt-ck-JNt" firstAttribute="top" secondItem="fws-Nt-YwY" secondAttribute="top" constant="8" id="iY2-VC-G3V"/>
                                                 <constraint firstAttribute="trailing" secondItem="OOE-1c-TCK" secondAttribute="trailing" constant="5" id="lU2-Du-Bcc"/>
@@ -218,7 +218,7 @@
                             <constraint firstItem="0KL-LU-lhg" firstAttribute="top" secondItem="ugE-Ul-H9I" secondAttribute="top" id="he8-C9-S7n"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                    <navigationItem key="navigationItem" id="MOc-fV-EZE">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="FAQ-Vv-HLZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tdf-d6-TuM">
                                 <rect key="frame" x="16" y="11" width="83" height="34.5"/>
@@ -230,17 +230,20 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="edit-icon" style="plain" id="K8l-0j-oYt">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SeD-Vx-K6t">
-                                <rect key="frame" x="276" y="7.5" width="83" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="edit-icon"/>
-                                <connections>
-                                    <segue destination="gK2-bv-uNl" kind="presentation" id="8rb-1O-sqW"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="edit-icon" style="plain" id="K8l-0j-oYt">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SeD-Vx-K6t">
+                                    <rect key="frame" x="276" y="7.5" width="83" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="edit-icon"/>
+                                    <connections>
+                                        <segue destination="gK2-bv-uNl" kind="presentation" id="8rb-1O-sqW"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem image="TwitterLogoBlue" id="vbo-ey-kom"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0KL-LU-lhg" id="bAK-B9-MUe"/>

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *tweetField;
 @property (weak, nonatomic) NSString* placeholderText;
 @property (weak, nonatomic) NSString* emptyText;
+@property (assign, nonatomic) BOOL firstTimeEditing;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 
 @end
@@ -27,12 +28,17 @@
     // Initializing constant variables
     self.placeholderText = @"What's happening?";
     self.emptyText = @"";
+    
+    self.firstTimeEditing = YES;
 
     self.tweetField.delegate = self;
     
     self.tweetField.text = self.placeholderText;
     self.tweetField.textColor = [UIColor lightGrayColor];
-    self.tweetField.returnKeyType = UIReturnKeyDone;
+    self.tweetField.returnKeyType = UIReturnKeyDefault;
+    [self.tweetField becomeFirstResponder];
+    
+    [self resetCursor];
     
     [[APIManager shared] getCredentialsWithCompletion:^(Profile* profile, NSError* error) {
          if(error){
@@ -43,34 +49,33 @@
              
              NSURL *url = [NSURL URLWithString:profile.profileImgUrl];
              NSData *urlData = [NSData dataWithContentsOfURL:url];
-             [self.profileImage setImage:[UIImage imageWithData:urlData]];
+             [self.profileImage setImage:[UIImage imageWithData:urlData ]];
          }
      }];
 }
 
 #pragma mark - Compose tweet placeholder text
 
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    if ([textView.text isEqualToString:self.placeholderText]) {
+- (void)resetCursor {
+    UITextPosition* pos = [self.tweetField beginningOfDocument];
+    UITextRange* range = [self.tweetField textRangeFromPosition:pos toPosition:pos];
+    [self.tweetField setSelectedTextRange:range];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+//    NSLog(@"text view did change");
+    
+    if (self.firstTimeEditing) {
+        self.firstTimeEditing = NO;
         textView.text = self.emptyText;
         textView.textColor = [UIColor blackColor];
     }
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    if ([textView.text isEqualToString:self.emptyText]) {
+    else if ([textView.text isEqualToString:self.emptyText]) {
         textView.text = self.placeholderText;
         textView.textColor = [UIColor lightGrayColor];
+        [self resetCursor];
+        self.firstTimeEditing = YES;
     }
-}
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if ([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-    }
-    
-    return true;
 }
 
 - (IBAction)publishTweet:(id)sender {

@@ -236,6 +236,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hmU-He-YZr"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="FAQ-Vv-HLZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tdf-d6-TuM">
                                 <rect key="frame" x="16" y="11" width="83" height="34.5"/>
@@ -488,13 +489,7 @@
                         <viewLayoutGuide key="safeArea" id="CP9-Si-bXD"/>
                         <color key="backgroundColor" red="0.13533385589999999" green="0.1626388584" blue="0.1889698776" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet" id="LwI-qe-f5k">
-                        <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="81l-DF-q2t">
-                            <connections>
-                                <segue destination="Lbl-k5-U4i" kind="show" id="dGA-pg-5Md"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tweet" id="LwI-qe-f5k"/>
                     <connections>
                         <outlet property="dateLabel" destination="bzL-cz-Xfo" id="Wpu-DN-wWA"/>
                         <outlet property="handleLabel" destination="sVj-S5-bik" id="kq8-EW-HTG"/>
@@ -569,13 +564,9 @@
             <point key="canvasLocation" x="2673" y="238"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="1DH-bv-mXM"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.29803922770000002" green="0.61960786580000005" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="TwitterLogo" width="120" height="120"/>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="close-icon" width="26" height="24"/>
         <image name="heart-icon-1" width="80" height="71"/>
         <image name="plus" catalog="system" width="128" height="113"/>

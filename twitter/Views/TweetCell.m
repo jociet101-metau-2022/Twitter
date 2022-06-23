@@ -21,13 +21,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    [self refreshUI];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-//    NSLog(@"color %@", self.backgroundColor);
-//    0.128384 0.163686 0.191759 1
+    [super setSelected:selected animated:animated];\
 }
 
 - (void)setTweet:(Tweet *)tweet {

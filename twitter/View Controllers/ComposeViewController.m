@@ -33,7 +33,7 @@
     self.firstTimeEditing = YES;
 
     self.tweetField.delegate = self;
-    self.tweetField.textColor = [UIColor blackColor];
+    self.tweetField.textColor = [UIColor whiteColor];
     self.tweetField.returnKeyType = UIReturnKeyDone;
     
     [self resetTweetButton];
@@ -113,7 +113,7 @@
         [self resetTweetButton];
     }
     else {
-        self.numChars.textColor = [UIColor blackColor];
+        self.numChars.textColor = [UIColor whiteColor];
         self.tweetButt.tintColor = [UIColor systemBlueColor];
     }
 }

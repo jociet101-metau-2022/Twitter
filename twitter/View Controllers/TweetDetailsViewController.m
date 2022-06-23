@@ -157,10 +157,14 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    NSString* senderType = [NSString stringWithFormat:@"%@", [sender class]];
     UINavigationController *navigationController = [segue destinationViewController];
-    ReplyViewController *replyController = (ReplyViewController*)navigationController.topViewController;
-    replyController.delegate = self;
-    replyController.incomingTweet = self.incomingData;
+    
+    if ([senderType isEqualToString:@"UIButton"]) {
+        ReplyViewController *replyController = (ReplyViewController*)navigationController.topViewController;
+        replyController.delegate = self;
+        replyController.incomingTweet = self.incomingData;
+    }
 }
 
 @end

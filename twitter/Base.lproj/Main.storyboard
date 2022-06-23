@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0KL-LU-lhg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="591"/>
                                 <color key="backgroundColor" red="0.13533385589999999" green="0.1626388584" blue="0.1889698776" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13533385589999999" green="0.1626388584" blue="0.1889698776" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -220,7 +220,7 @@
                                             <outlet property="profileImage" destination="hTf-b8-rgz" id="ISL-P3-WeJ"/>
                                             <outlet property="retweetButt" destination="JtJ-8h-h9M" id="cRH-7m-k5d"/>
                                             <outlet property="tweetLabel" destination="Uu8-Uu-GES" id="iEx-Xu-24d"/>
-                                            <segue destination="rLN-3c-BW3" kind="show" id="CvW-Xd-ojI"/>
+                                            <segue destination="rLN-3c-BW3" kind="show" id="vxm-G9-jD4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -408,7 +408,7 @@
             <objects>
                 <viewController id="rLN-3c-BW3" customClass="TweetDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LRq-ul-y5I">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvo-PJ-XPP">
@@ -491,7 +491,7 @@
                     <navigationItem key="navigationItem" title="Tweet" id="LwI-qe-f5k">
                         <barButtonItem key="leftBarButtonItem" image="arrow.backward" catalog="system" id="81l-DF-q2t">
                             <connections>
-                                <segue destination="Lbl-k5-U4i" kind="presentation" id="k5j-D8-WhP"/>
+                                <segue destination="Lbl-k5-U4i" kind="show" id="dGA-pg-5Md"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -508,7 +508,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qld-oV-IVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="900"/>
+            <point key="canvasLocation" x="1823" y="898"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -551,28 +551,6 @@
             <point key="canvasLocation" x="2673" y="-520"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="CHY-tV-wP9">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k5W-ZI-7J5" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="okL-9t-5F5"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="djJ-v2-dPu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="rLN-3c-BW3" kind="relationship" relationship="rootViewController" id="q1o-zh-krb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zwz-n9-u24" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="954" y="899"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="NjU-TS-MfN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UeF-yP-95t" sceneMemberID="viewController">
@@ -592,8 +570,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q1o-zh-krb"/>
-        <segue reference="k5j-D8-WhP"/>
+        <segue reference="1DH-bv-mXM"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.29803922770000002" green="0.61960786580000005" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>

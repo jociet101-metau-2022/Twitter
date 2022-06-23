@@ -30,8 +30,6 @@
 }
 
 - (void)didUpdate {
-    NSLog(@"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndid upate");
-    
     [self refreshUI];
 }
 

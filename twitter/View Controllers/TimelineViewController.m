@@ -41,6 +41,11 @@
     [self fetchData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    NSLog(@"view did appear");
+    [self fetchData];
+}
+
 - (void)fetchData {
     
     // Get timeline

@@ -29,9 +29,9 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)didUpdate {
-    [self refreshUI];
-}
+//- (void)needRefresh {
+//    [self refreshUI];
+//}
 
 - (void)setTweet:(Tweet *)tweet {
     

@@ -25,20 +25,11 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
-//    self.backgroundColor = [UIColor redColor];
-    
-    NSLog(@"color %@", self.backgroundColor);
+//    NSLog(@"color %@", self.backgroundColor);
 //    0.128384 0.163686 0.191759 1
-
-    // Configure the view for the selected state
 }
 
 - (void)setTweet:(Tweet *)tweet {
-    
-    
-    
-//    NSLog(@"set tweet called for %@", tweet.text);
     
     _tweet = tweet;
     

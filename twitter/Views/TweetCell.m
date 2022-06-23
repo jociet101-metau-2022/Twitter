@@ -25,11 +25,18 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    
+//    self.backgroundColor = [UIColor redColor];
+    
+    NSLog(@"color %@", self.backgroundColor);
+//    0.128384 0.163686 0.191759 1
 
     // Configure the view for the selected state
 }
 
 - (void)setTweet:(Tweet *)tweet {
+    
+    
     
 //    NSLog(@"set tweet called for %@", tweet.text);
     
@@ -55,10 +62,10 @@
     UIImage *tImg;
     
     if (self.tweet.favorited == YES) {
-        tImg = [UIImage imageNamed:@"favor-icon-red.png"];
+        tImg = [UIImage imageNamed:@"heart-icon-1-red.png"];
     }
     else {
-        tImg = [UIImage imageNamed:@"favor-icon.png"];
+        tImg = [UIImage imageNamed:@"heart-icon-1.png"];
     }
     
     self.numHeartLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
@@ -67,10 +74,10 @@
     UIImage *rImg;
     
     if (self.tweet.retweeted == YES) {
-        rImg = [UIImage imageNamed:@"retweet-icon-green.png"];
+        rImg = [UIImage imageNamed:@"retweet-icon-1-green.png"];
     }
     else {
-        rImg = [UIImage imageNamed:@"retweet-icon.png"];
+        rImg = [UIImage imageNamed:@"retweet-icon-1.png"];
     }
     
     self.numRetweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];

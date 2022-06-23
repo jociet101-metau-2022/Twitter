@@ -127,10 +127,10 @@
     UIImage *tImg;
     
     if (self.incomingData.favorited == YES) {
-        tImg = [UIImage imageNamed:@"favor-icon-red.png"];
+        tImg = [UIImage imageNamed:@"heart-icon-1-red.png"];
     }
     else {
-        tImg = [UIImage imageNamed:@"favor-icon.png"];
+        tImg = [UIImage imageNamed:@"heart-icon-1.png"];
     }
     
     [self.heartButt setImage:tImg forState:UIControlStateNormal];
@@ -138,10 +138,10 @@
     UIImage *rImg;
     
     if (self.incomingData.retweeted == YES) {
-        rImg = [UIImage imageNamed:@"retweet-icon-green.png"];
+        rImg = [UIImage imageNamed:@"retweet-icon-1-green.png"];
     }
     else {
-        rImg = [UIImage imageNamed:@"retweet-icon.png"];
+        rImg = [UIImage imageNamed:@"retweet-icon-1.png"];
     }
     
     [self.retweetButt setImage:rImg forState:UIControlStateNormal];

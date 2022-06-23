@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statisticsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButt;
 @property (weak, nonatomic) IBOutlet UIButton *heartButt;
+@property (weak, nonatomic) IBOutlet UIButton *replyButt;
 
 @end
 
@@ -123,7 +124,9 @@
 
 - (void)refreshUI {
     
-    self.statisticsLabel.text = [NSString stringWithFormat:@"%d Retweets  %d Likes", self.incomingData.retweetCount, self.incomingData.favoriteCount];
+    [self.delegate didUpdate];
+    
+    self.statisticsLabel.text = [NSString stringWithFormat:@"%d retweets  %d likes", self.incomingData.retweetCount, self.incomingData.favoriteCount];
     
     UIImage *tImg;
     
@@ -146,6 +149,11 @@
     }
     
     [self.retweetButt setImage:rImg forState:UIControlStateNormal];
+    
+    if (self.incomingData.repliedTo == YES) {
+        UIImage* pImg = [UIImage imageNamed:@"reply-icon-1-blue.png"];
+        [self.replyButt setImage:pImg forState:UIControlStateNormal];
+    }
 }
 
 - (void)didTweet:(Tweet *)tweet {
@@ -161,9 +169,14 @@
     UINavigationController *navigationController = [segue destinationViewController];
     
     if ([senderType isEqualToString:@"UIButton"]) {
+        
         ReplyViewController *replyController = (ReplyViewController*)navigationController.topViewController;
         replyController.delegate = self;
         replyController.incomingTweet = self.incomingData;
+        
+        UIImage* pImg = [UIImage imageNamed:@"reply-icon-1-blue.png"];
+        [self.replyButt setImage:pImg forState:UIControlStateNormal];
+        self.incomingData.repliedTo = YES;
     }
 }
 

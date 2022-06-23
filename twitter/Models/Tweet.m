@@ -35,6 +35,7 @@
         self.favorited = [dictionary[@"favorited"] boolValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];
         self.retweeted = [dictionary[@"retweeted"] boolValue];
+        self.repliedTo = dictionary[@"reply_count"] > 0;
 
         // initialize user
         NSDictionary *user = dictionary[@"user"];

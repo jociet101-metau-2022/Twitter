@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="width" constant="68" id="BnG-x2-2wb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Log In">
+                                <state key="normal" title="login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -59,9 +59,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="-62" y="-127"/>
         </scene>
-        <!--Home Timeline-->
+        <!--timeline-->
         <scene sceneID="1Tv-nE-1AW">
             <objects>
                 <viewController storyboardIdentifier="TimelineViewController" id="Lbl-k5-U4i" customClass="TimelineViewController" sceneMemberID="viewController">
@@ -218,6 +218,7 @@
                                             <outlet property="numHeartLabel" destination="9FW-q6-t3Q" id="VAy-79-MYc"/>
                                             <outlet property="numRetweetLabel" destination="LrW-gj-I7j" id="AOJ-15-ejJ"/>
                                             <outlet property="profileImage" destination="hTf-b8-rgz" id="ISL-P3-WeJ"/>
+                                            <outlet property="replyButt" destination="Oro-Q3-onO" id="wIo-2j-u0J"/>
                                             <outlet property="retweetButt" destination="JtJ-8h-h9M" id="cRH-7m-k5d"/>
                                             <outlet property="tweetLabel" destination="Uu8-Uu-GES" id="iEx-Xu-24d"/>
                                             <segue destination="rLN-3c-BW3" kind="show" id="vxm-G9-jD4"/>
@@ -235,14 +236,14 @@
                             <constraint firstItem="0KL-LU-lhg" firstAttribute="top" secondItem="ugE-Ul-H9I" secondAttribute="top" id="he8-C9-S7n"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
+                    <navigationItem key="navigationItem" title="timeline" id="MOc-fV-EZE">
                         <barButtonItem key="backBarButtonItem" title=" " id="hmU-He-YZr"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="FAQ-Vv-HLZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Tdf-d6-TuM">
                                 <rect key="frame" x="16" y="11" width="83" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <buttonConfiguration key="configuration" style="plain" title="logout"/>
                                 <connections>
                                     <action selector="didTapLogout:" destination="Lbl-k5-U4i" eventType="touchUpInside" id="BPg-ar-evR"/>
                                 </connections>
@@ -252,7 +253,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SeD-Vx-K6t">
                                 <rect key="frame" x="275" y="6" width="84" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="38"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="       +">
                                     <color key="titleColor" systemColor="linkColor"/>
@@ -331,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBC-u1-smR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580" y="-520"/>
+            <point key="canvasLocation" x="3614" y="-592"/>
         </scene>
         <!--Reply View Controller-->
         <scene sceneID="f0J-WU-koq">
@@ -360,15 +361,15 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Replying to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOr-30-fvS">
-                                <rect key="frame" x="16" y="80" width="100" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="replying to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOr-30-fvS">
+                                <rect key="frame" x="16" y="80" width="94" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22g-UT-WH7">
-                                <rect key="frame" x="124" y="80" width="232" height="26"/>
+                                <rect key="frame" x="118" y="80" width="232" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.61960786580000005" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -385,7 +386,7 @@
                                 <action selector="closeEditing:" destination="XnB-Eu-DNL" id="SFH-0c-6Ac"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Tweet" style="plain" id="HcB-uC-Zlo">
+                        <barButtonItem key="rightBarButtonItem" title="tweet" style="plain" id="HcB-uC-Zlo">
                             <connections>
                                 <action selector="publishTweet:" destination="XnB-Eu-DNL" id="QRY-tA-QtV"/>
                             </connections>
@@ -402,9 +403,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X7Q-on-f4H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580" y="237.93103448275863"/>
+            <point key="canvasLocation" x="4490" y="137"/>
         </scene>
-        <!--Tweet-->
+        <!--tweet-->
         <scene sceneID="IW3-bb-SDq">
             <objects>
                 <viewController id="rLN-3c-BW3" customClass="TweetDetailsViewController" sceneMemberID="viewController">
@@ -489,13 +490,14 @@
                         <viewLayoutGuide key="safeArea" id="CP9-Si-bXD"/>
                         <color key="backgroundColor" red="0.13533385589999999" green="0.1626388584" blue="0.1889698776" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweet" id="LwI-qe-f5k"/>
+                    <navigationItem key="navigationItem" title="tweet" id="LwI-qe-f5k"/>
                     <connections>
                         <outlet property="dateLabel" destination="bzL-cz-Xfo" id="Wpu-DN-wWA"/>
                         <outlet property="handleLabel" destination="sVj-S5-bik" id="kq8-EW-HTG"/>
                         <outlet property="heartButt" destination="2ec-er-dKO" id="IOp-KN-EiH"/>
                         <outlet property="nameLabel" destination="gay-U7-vUN" id="SPa-na-AkM"/>
                         <outlet property="profileImage" destination="L07-sH-kjW" id="Smt-sa-xHr"/>
+                        <outlet property="replyButt" destination="0bd-Jl-pVE" id="wK8-4O-XFM"/>
                         <outlet property="retweetButt" destination="M1U-k9-We3" id="4yt-HJ-q5a"/>
                         <outlet property="statisticsLabel" destination="77L-Xe-1bM" id="leB-s5-rEE"/>
                         <outlet property="tweetText" destination="bvo-PJ-XPP" id="6Vm-On-NRQ"/>
@@ -503,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qld-oV-IVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1823" y="898"/>
+            <point key="canvasLocation" x="2758" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WUT-Ke-VeR">
@@ -525,7 +527,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHS-35-jFs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="36.431784107946029"/>
+            <point key="canvasLocation" x="865" y="-127"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qUC-NO-OGv">
@@ -543,7 +545,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4K-Xj-M4b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="-520"/>
+            <point key="canvasLocation" x="2758" y="-592"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NjU-TS-MfN">
@@ -561,7 +563,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0L-7A-R2X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="238"/>
+            <point key="canvasLocation" x="3614" y="138"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.29803922770000002" green="0.61960786580000005" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

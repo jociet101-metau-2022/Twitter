@@ -8,12 +8,14 @@
 
 #import "TweetCell.h"
 #import "APIManager.h"
+#import "TweetDetailsViewController.h"
 
-@interface TweetCell ()
+@interface TweetCell () <TweetDetailsViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *heartButt;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButt;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameWidthLabel;
+@property (weak, nonatomic) IBOutlet UIButton *replyButt;
 
 @end
 
@@ -21,12 +23,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    [self refreshUI];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];\
+    [super setSelected:selected animated:animated];
+}
+
+- (void)didUpdate {
+    NSLog(@"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndid upate");
+    
+    [self refreshUI];
 }
 
 - (void)setTweet:(Tweet *)tweet {
@@ -81,6 +87,11 @@
     
     self.numRetweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     [self.retweetButt setImage:rImg forState:UIControlStateNormal];
+    
+    if (self.tweet.repliedTo == YES) {
+        UIImage* pImg = [UIImage imageNamed:@"reply-icon-1-blue.png"];
+        [self.replyButt setImage:pImg forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)didTapFavorite:(id)sender {

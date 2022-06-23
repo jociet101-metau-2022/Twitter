@@ -35,6 +35,8 @@
     
     self.statisticsLabel.text = [NSString stringWithFormat:@"%d Retweets  %d Likes", self.incomingData.retweetCount, self.incomingData.favoriteCount];
     self.statisticsLabel.textColor = [UIColor darkGrayColor];
+    
+    [self refreshUI];
 
     NSString *URLString = self.incomingData.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
@@ -55,7 +57,7 @@
     // Update cell UI
     [self refreshUI];
     
-    // Send a POST request to the POST favorites/create endpoint
+    // Send a POST request to the POST favorites endpoint
     APIManager* manager = [APIManager shared];
     
     if (self.incomingData.favorited == YES) {
@@ -93,7 +95,7 @@
     // Update cell UI
     [self refreshUI];
     
-    // Send a POST request to the POST favorites/create endpoint
+    // Send a POST request to the POST retweet endpoint
     APIManager* manager = [APIManager shared];
     
     if (self.incomingData.retweeted == YES) {

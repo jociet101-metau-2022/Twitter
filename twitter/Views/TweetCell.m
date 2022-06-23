@@ -31,12 +31,16 @@
 
 - (void)setTweet:(Tweet *)tweet {
     
+//    NSLog(@"set tweet called for %@", tweet.text);
+    
     _tweet = tweet;
     
     self.nameLabel.text = self.tweet.user.name;
     self.handleLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
-    self.dateLabel.text = self.tweet.createdAtString;
     self.tweetLabel.text = self.tweet.text;
+    
+    // Use DateTools to get time ago of a tweet
+    self.dateLabel.text = [self.tweet.rawCreatedAt shortTimeAgoSinceNow];
     
     [self refreshUI];
 

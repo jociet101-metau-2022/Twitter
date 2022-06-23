@@ -24,7 +24,13 @@
             dictionary = originalTweet;
         }
         self.idStr = dictionary[@"id_str"];
-        self.text = dictionary[@"text"];
+        
+        if([dictionary valueForKey:@"full_text"] != nil) {
+           self.text = dictionary[@"full_text"]; // uses full text if Twitter API provided it
+       } else {
+           self.text = dictionary[@"text"]; // fallback to regular text that Twitter API provided
+       }
+        
         self.favoriteCount = [dictionary[@"favorite_count"] intValue];
         self.favorited = [dictionary[@"favorited"] boolValue];
         self.retweetCount = [dictionary[@"retweet_count"] intValue];
@@ -41,21 +47,26 @@
         formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
         // Convert String to Date
         NSDate *date = [formatter dateFromString:createdAtOriginalString];
+        self.rawCreatedAt = date;
         // Configure output format
         formatter.dateStyle = NSDateFormatterShortStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;
         // Convert Date to String
         self.createdAtString = [formatter stringFromDate:date];
         
-        // Format details date string
+        // Format createdAt date string
+        NSString *dateForDetailsOriginalString = dictionary[@"created_at"];
         NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
-        formatter2.dateFormat = @"MM-dd-yy HH:mm";
-        NSDate *date2 = [formatter2 dateFromString:createdAtOriginalString];
+        // Configure the input format to parse the date string
+        formatter2.dateFormat = @"E MMM d HH:mm:ss Z y";
+        // Convert String to Date
+        NSDate *date2 = [formatter2 dateFromString:dateForDetailsOriginalString];
         // Configure output format
         formatter2.dateStyle = NSDateFormatterShortStyle;
         formatter2.timeStyle = NSDateFormatterShortStyle;
         // Convert Date to String
         self.dateForDetails = [formatter2 stringFromDate:date2];
+        
     }
     return self;
 }

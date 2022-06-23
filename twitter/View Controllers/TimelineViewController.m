@@ -105,9 +105,14 @@
     NSString* senderType = [NSString stringWithFormat:@"%@", [sender class]];
     
     if ([senderType isEqualToString:@"UIButton"]) {
+        
+        UIButton* button = sender;
         UINavigationController *navigationController = [segue destinationViewController];
-        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-        composeController.delegate = self;
+        
+        if (button.titleLabel.text != nil) {
+            ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+            composeController.delegate = self;
+        }
     }
     else if ([senderType isEqualToString:@"TweetCell"]) {
         

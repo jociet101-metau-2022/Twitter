@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C5D00292864E08200617FD2 /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D00282864E08200617FD2 /* ReplyViewController.m */; };
 		3C742FFA2861231700D0CEA6 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C742FF92861231700D0CEA6 /* Keys.plist */; };
 		3C742FFD28612C5B00D0CEA6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C742FFC28612C5B00D0CEA6 /* User.m */; };
 		3C74300028612CC700D0CEA6 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C742FFF28612CC700D0CEA6 /* Tweet.m */; };
@@ -28,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		1397EA94AE1DE5F26C1724FD /* Pods-twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter/Pods-twitter.release.xcconfig"; sourceTree = "<group>"; };
+		3C5D00272864E08200617FD2 /* ReplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReplyViewController.h; sourceTree = "<group>"; };
+		3C5D00282864E08200617FD2 /* ReplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyViewController.m; sourceTree = "<group>"; };
 		3C742FF92861231700D0CEA6 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		3C742FFB28612C5B00D0CEA6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3C742FFC28612C5B00D0CEA6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 		6AD2790320BCC01B0085BC29 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3C5D00272864E08200617FD2 /* ReplyViewController.h */,
+				3C5D00282864E08200617FD2 /* ReplyViewController.m */,
 				3CFD0F522862777400EA8AF3 /* ComposeViewController.h */,
 				3CFD0F532862777400EA8AF3 /* ComposeViewController.m */,
 				6AD2790420BCC0380085BC29 /* LoginViewController.h */,
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CFA13EF286392F600BCE44E /* Profile.m in Sources */,
+				3C5D00292864E08200617FD2 /* ReplyViewController.m in Sources */,
 				3CEB1FDB2863D56B005C4D16 /* TweetDetailsViewController.m in Sources */,
 				3C743003286131A800D0CEA6 /* TweetCell.m in Sources */,
 				6AD278F320BCA6020085BC29 /* BDBOAuth1SessionManager+SFAuthenticationSession.m in Sources */,

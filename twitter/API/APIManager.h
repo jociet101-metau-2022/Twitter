@@ -19,6 +19,7 @@
 - (void)getCredentialsWithCompletion:(void(^)(Profile *tweets, NSError *error))completion;
 
 - (void)postStatusWithText:(NSString *)text completion:(void (^)(Tweet *, NSError *))completion;
+- (void)postReplyWithText:(NSString *)text andId:(NSString *)tweetId completion:(void (^)(Tweet *, NSError *))completion;
 - (void)favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 - (void)unFavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;
 - (void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion;

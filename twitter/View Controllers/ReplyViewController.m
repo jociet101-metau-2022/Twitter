@@ -1,28 +1,29 @@
 //
-//  ComposeViewController.m
+//  ReplyViewController.m
 //  twitter
 //
-//  Created by Jocelyn Tseng on 6/21/22.
+//  Created by Jocelyn Tseng on 6/23/22.
 //  Copyright © 2022 Emerson Malca. All rights reserved.
 //
 
-#import "ComposeViewController.h"
+#import "ReplyViewController.h"
 #import "APIManager.h"
-#import "Profile.h"
 
-@interface ComposeViewController () <UITextViewDelegate>
+@interface ReplyViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *tweetField;
 @property (weak, nonatomic) NSString* emptyText;
+@property (strong, nonatomic) NSString* tweetId;
+@property (strong, nonatomic) NSString* replyingToName;
 @property (assign, nonatomic) BOOL firstTimeEditing;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tweetButt;
 @property (weak, nonatomic) IBOutlet UILabel *numChars;
-@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 
 @end
 
-@implementation ComposeViewController
+@implementation ReplyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +36,10 @@
     self.tweetField.delegate = self;
     self.tweetField.textColor = [UIColor whiteColor];
     self.tweetField.returnKeyType = UIReturnKeyDone;
+    
+    self.tweetId = self.incomingTweet.idStr;
+    self.replyingToName = [@"@" stringByAppendingString:self.incomingTweet.user.screenName];
+    self.handleLabel.text = self.replyingToName;
     
     [self resetTweetButton];
     
@@ -63,8 +68,6 @@
     if (self.firstTimeEditing) {
         self.firstTimeEditing = NO;
         
-        self.placeholderLabel.alpha = 0;
-        
         self.tweetButt.tintColor = [UIColor systemBlueColor];
     }
 }
@@ -72,8 +75,6 @@
 - (void)textViewDidEndEditing:(UITextView *)textView {
     
     if ([textView.text isEqualToString:self.emptyText]) {
-        
-        self.placeholderLabel.alpha = 1;
         
         [self resetTweetButton];
         self.firstTimeEditing = YES;
@@ -118,20 +119,20 @@
 
 - (IBAction)publishTweet:(id)sender {
     
-    NSString* tweetBody = self.tweetField.text;
+    NSString* tweetBody = [self.replyingToName stringByAppendingString:[@" " stringByAppendingString:self.tweetField.text]];
     
     APIManager* manager = [APIManager new];
-    [manager postStatusWithText:(NSString *)tweetBody completion:^(Tweet *tweet, NSError *error) {
-        
+    [manager postReplyWithText:(NSString *)tweetBody andId:(NSString *)self.tweetId completion:^(Tweet *tweet, NSError *error) {
+
         if (error != nil) {
             NSString* errorName = [NSString stringWithFormat:@"%@", [error localizedDescription]];
             NSLog(@"%@", errorName);
         }
         else {
             [self.delegate didTweet:tweet];
-            
+
             NSLog(@"tweet successfully published");
-            
+
             [self dismissViewControllerAnimated:true completion:nil];
         }
     }];

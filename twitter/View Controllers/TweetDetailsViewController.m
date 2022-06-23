@@ -9,8 +9,9 @@
 #import "TweetDetailsViewController.h"
 #import "APIManager.h"
 #import "Tweet.h"
+#import "ReplyViewController.h"
 
-@interface TweetDetailsViewController ()
+@interface TweetDetailsViewController () <ReplyViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
@@ -42,7 +43,6 @@
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     [self.profileImage setImage:[UIImage imageWithData:urlData]];
-    
 }
 
 - (IBAction)didTapFavorite:(id)sender {
@@ -148,14 +148,19 @@
     [self.retweetButt setImage:rImg forState:UIControlStateNormal];
 }
 
-/*
+- (void)didTweet:(Tweet *)tweet {
+    [self refreshUI];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    UINavigationController *navigationController = [segue destinationViewController];
+    ReplyViewController *replyController = (ReplyViewController*)navigationController.topViewController;
+    replyController.delegate = self;
+    replyController.incomingTweet = self.incomingData;
 }
-*/
 
 @end

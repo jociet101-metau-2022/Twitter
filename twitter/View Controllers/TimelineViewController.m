@@ -36,6 +36,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+    self.refreshControl.tintColor = [UIColor whiteColor];
     
     [self fetchData];
 }

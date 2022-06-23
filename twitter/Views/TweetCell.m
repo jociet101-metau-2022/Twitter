@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *heartButt;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButt;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameWidthLabel;
 
 @end
 
@@ -46,6 +47,14 @@
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     [self.profileImage setImage:[UIImage imageWithData:urlData]];
+    
+    if (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])) {
+        self.nameWidthLabel.constant = 250;
+    }
+    else {
+        self.nameWidthLabel.constant = 150;
+    }
+    
 }
 
 - (void)refreshUI {

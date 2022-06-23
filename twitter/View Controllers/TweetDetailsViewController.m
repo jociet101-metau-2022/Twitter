@@ -42,6 +42,7 @@
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     [self.profileImage setImage:[UIImage imageWithData:urlData]];
+    
 }
 
 - (IBAction)didTapFavorite:(id)sender {

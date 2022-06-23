@@ -10,7 +10,7 @@
 #import "APIManager.h"
 #import "TweetDetailsViewController.h"
 
-@interface TweetCell () <TweetDetailsViewControllerDelegate>
+@interface TweetCell ()
 
 @property (weak, nonatomic) IBOutlet UIButton *heartButt;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButt;
@@ -28,10 +28,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-
-//- (void)needRefresh {
-//    [self refreshUI];
-//}
 
 - (void)setTweet:(Tweet *)tweet {
     

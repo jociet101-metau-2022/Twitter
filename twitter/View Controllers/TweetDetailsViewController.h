@@ -11,16 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol TweetDetailsViewControllerDelegate
-
-- (void)didUpdate;
-
-@end
-
 @interface TweetDetailsViewController : UIViewController
 
 @property (nonatomic, strong) Tweet* incomingData;
-@property (nonatomic, weak) id<TweetDetailsViewControllerDelegate> delegate;
 
 @end
 

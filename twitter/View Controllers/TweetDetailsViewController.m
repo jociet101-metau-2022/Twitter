@@ -124,8 +124,6 @@
 
 - (void)refreshUI {
     
-    [self.delegate didUpdate];
-    
     self.statisticsLabel.text = [NSString stringWithFormat:@"%d retweets  %d likes", self.incomingData.retweetCount, self.incomingData.favoriteCount];
     
     UIImage *tImg;

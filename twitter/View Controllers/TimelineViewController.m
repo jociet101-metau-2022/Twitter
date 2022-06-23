@@ -16,7 +16,7 @@
 #import "ComposeViewController.h"
 #import "TweetDetailsViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, TweetDetailsViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray* arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -131,7 +131,6 @@
         Tweet* data = self.arrayOfTweets[indexPath.row];
         TweetDetailsViewController *detailVC = [segue destinationViewController];
         detailVC.incomingData = data;
-        detailVC.delegate = self;
     }
 }
 

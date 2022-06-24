@@ -43,7 +43,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"view did appear");
     [self fetchData];
 }
 
@@ -80,7 +79,6 @@
 }
 
 - (IBAction)didTapLogout:(id)sender {
-    NSLog(@"Trying to logout");
     
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
 

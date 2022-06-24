@@ -14,7 +14,6 @@
     self = [super init];
 
     if (self) {
-        NSLog(@"DICTIONARY! %@", dictionary);
         
         // Is this a re-tweet?
         NSDictionary *originalTweet = dictionary[@"retweeted_status"];
@@ -101,7 +100,7 @@
 }
 
 + (NSMutableArray *)smallTweetsWithArray:(NSDictionary *)data {
-    NSLog(@"%@", data);
+    
     NSArray *dictionaries = data[@"data"];
     
     NSMutableArray *tweets = [[NSMutableArray alloc] init];

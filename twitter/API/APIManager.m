@@ -93,7 +93,6 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     // Create a GET Request
     [self GET:[NSString stringWithFormat:@"2/users/%@/tweets?tweet.fields=created_at&max_results=100", theId]
        parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
-//        NSLog(@"%@", tweetDictionaries);
         
            // Success
            NSMutableArray *tweets = [Tweet smallTweetsWithArray:tweetDictionaries];
@@ -115,8 +114,6 @@ static NSString * const baseURLString = @"https://api.twitter.com";
                      NSLog(@"Successfully got credentials");
                      NSDictionary *parameters = @{@"user_id":ownProfile.myId, @"screen_name":ownProfile.screenName};
                      
-                     NSLog(@"%@", parameters);
-                     
                      // Create a GET Request
                      [self GET:@"1.1/users/show.json"
                         parameters:(NSDictionary *)parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable profileDictionary) {
@@ -132,8 +129,6 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }
     else {
         NSDictionary *parameters = @{@"user_id":userId, @"screen_name":userHandle};
-        
-        NSLog(@"%@", parameters);
         
         // Create a GET Request
         [self GET:@"1.1/users/show.json"

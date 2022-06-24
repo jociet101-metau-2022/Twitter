@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+@property (weak, nonatomic) IBOutlet UITextView *tweetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numRetweetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numHeartLabel;
 

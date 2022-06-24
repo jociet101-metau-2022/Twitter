@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *tweetText;
+@property (weak, nonatomic) IBOutlet UITextView *tweetText;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statisticsLabel;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButt;
@@ -38,12 +38,17 @@
     self.statisticsLabel.text = [NSString stringWithFormat:@"%d Retweets  %d Likes", self.incomingData.retweetCount, self.incomingData.favoriteCount];
     self.statisticsLabel.textColor = [UIColor darkGrayColor];
     
+    [self updateTextView];
     [self refreshUI];
 
     NSString *URLString = self.incomingData.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     [self.profileImage setImage:[UIImage imageWithData:urlData]];
+}
+
+- (void)updateTextView {
+    
 }
 
 - (IBAction)didTapFavorite:(id)sender {

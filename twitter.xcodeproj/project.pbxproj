@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3C5D00292864E08200617FD2 /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D00282864E08200617FD2 /* ReplyViewController.m */; };
 		3C5D002F2865484300617FD2 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D002E2865484300617FD2 /* ProfileViewController.m */; };
+		3C5D00372865824000617FD2 /* ProfileTweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D00362865824000617FD2 /* ProfileTweetCell.m */; };
 		3C742FFA2861231700D0CEA6 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C742FF92861231700D0CEA6 /* Keys.plist */; };
 		3C742FFD28612C5B00D0CEA6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C742FFC28612C5B00D0CEA6 /* User.m */; };
 		3C74300028612CC700D0CEA6 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C742FFF28612CC700D0CEA6 /* Tweet.m */; };
@@ -34,6 +35,8 @@
 		3C5D00282864E08200617FD2 /* ReplyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReplyViewController.m; sourceTree = "<group>"; };
 		3C5D002D2865484300617FD2 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		3C5D002E2865484300617FD2 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		3C5D00352865824000617FD2 /* ProfileTweetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileTweetCell.h; sourceTree = "<group>"; };
+		3C5D00362865824000617FD2 /* ProfileTweetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileTweetCell.m; sourceTree = "<group>"; };
 		3C742FF92861231700D0CEA6 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		3C742FFB28612C5B00D0CEA6 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3C742FFC28612C5B00D0CEA6 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -94,14 +97,23 @@
 				3C5D00282864E08200617FD2 /* ReplyViewController.m */,
 				3CFD0F522862777400EA8AF3 /* ComposeViewController.h */,
 				3CFD0F532862777400EA8AF3 /* ComposeViewController.m */,
-				6AD2790420BCC0380085BC29 /* LoginViewController.h */,
-				6AD2790520BCC0380085BC29 /* LoginViewController.m */,
 				6AD2790720BCC04D0085BC29 /* TimelineViewController.h */,
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
 				3CEB1FD92863D56B005C4D16 /* TweetDetailsViewController.h */,
 				3CEB1FDA2863D56B005C4D16 /* TweetDetailsViewController.m */,
 			);
 			path = "Timeline Related";
+			sourceTree = "<group>";
+		};
+		3C5D00342865806400617FD2 /* Profile Related */ = {
+			isa = PBXGroup;
+			children = (
+				6AD2790420BCC0380085BC29 /* LoginViewController.h */,
+				6AD2790520BCC0380085BC29 /* LoginViewController.m */,
+				3C5D002D2865484300617FD2 /* ProfileViewController.h */,
+				3C5D002E2865484300617FD2 /* ProfileViewController.m */,
+			);
+			path = "Profile Related";
 			sourceTree = "<group>";
 		};
 		6AD278CC20BC4B950085BC29 = {
@@ -170,6 +182,8 @@
 			children = (
 				3C743001286131A800D0CEA6 /* TweetCell.h */,
 				3C743002286131A800D0CEA6 /* TweetCell.m */,
+				3C5D00352865824000617FD2 /* ProfileTweetCell.h */,
+				3C5D00362865824000617FD2 /* ProfileTweetCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,8 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				3C5D00302865484D00617FD2 /* Timeline Related */,
-				3C5D002D2865484300617FD2 /* ProfileViewController.h */,
-				3C5D002E2865484300617FD2 /* ProfileViewController.m */,
+				3C5D00342865806400617FD2 /* Profile Related */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -314,6 +327,7 @@
 				3CFD0F542862777400EA8AF3 /* ComposeViewController.m in Sources */,
 				6AD278E820BC4B970085BC29 /* main.m in Sources */,
 				3C74300028612CC700D0CEA6 /* Tweet.m in Sources */,
+				3C5D00372865824000617FD2 /* ProfileTweetCell.m in Sources */,
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,

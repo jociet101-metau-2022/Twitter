@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *numRetweetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numHeartLabel;
 
+
+
 - (void)setTweet:(Tweet *)tweet;
 
 @end

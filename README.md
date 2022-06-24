@@ -41,12 +41,11 @@ The following **stretch** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Profile Page Timeline: Displays that user's tweet timeline
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. How to efficiently reuse code, for example, between the tweet cell on the home timeline and the tweet cell on a specific user's timeline.
-2. 
 
 ## Video Walkthrough
 
@@ -56,13 +55,14 @@ Here's a walkthrough of implemented user stories:
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Describe any challenges encountered while building the app: Auto layout was very challenging because the constraints would often conflict and I would have to examine carefully which constraints should be kept or deleted. However, it was nice to see that a lot of effort put into auto layout allows the app to be viewed on different orientations and devices.
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [DateTools](https://github.com/MatthewYork/DateTools) - date formatting library
 
 ## License
 

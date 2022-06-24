@@ -23,10 +23,20 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
+    
+    [self.profileImage addGestureRecognizer:profileTapGestureRecognizer];
+    [self.profileImage setUserInteractionEnabled:YES];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
+    [self.delegate tweetCell:self didTap:self.tweet.user];
 }
 
 - (void)setTweet:(Tweet *)tweet {
@@ -168,11 +178,6 @@
              }
          }];
     }
-}
-
-- (IBAction)didTapReply:(id)sender {
-    
-    
 }
 
 @end

@@ -16,7 +16,7 @@
 #import "ComposeViewController.h"
 #import "TweetDetailsViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, TweetCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray* arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -69,8 +69,9 @@
     [self fetchData];
 }
 
-- (void)didUpdate {
-    [self fetchData];
+- (void)tweetCell:(TweetCell *)tweetCell didTap:(User *)user{
+    // Perform segue to profile view controller
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,6 +96,7 @@
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
     cell.tweet = self.arrayOfTweets[indexPath.row];
+    cell.delegate = self;
     
     return cell;
 }

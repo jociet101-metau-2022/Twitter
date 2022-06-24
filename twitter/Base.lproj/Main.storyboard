@@ -132,9 +132,6 @@
                                                             </constraints>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="" image="reply-icon-1"/>
-                                                            <connections>
-                                                                <action selector="didTapReply:" destination="3C0-ba-DJe" eventType="touchUpInside" id="Wnh-6r-rzO"/>
-                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FW-q6-t3Q">
                                                             <rect key="frame" x="178" y="1" width="30" height="17"/>
@@ -264,6 +261,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="0KL-LU-lhg" id="bAK-B9-MUe"/>
+                        <segue destination="wnU-pK-3In" kind="show" identifier="profileSegue" id="XLc-mi-8LT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -711,6 +709,9 @@
             <point key="canvasLocation" x="-414" y="157"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XLc-mi-8LT"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.29803922770000002" green="0.61960786580000005" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="TwitterLogo" width="120" height="120"/>

@@ -18,6 +18,7 @@
         self.profileBannerUrl = dictionary[@"profile_banner_url"];
         self.screenName = dictionary[@"screen_name"];
         self.name = dictionary[@"name"];
+        self.myId = dictionary[@"id_str"];
         self.descriptText = dictionary[@"description"];
         self.location = dictionary[@"location"];
         self.folowersCount = [NSString stringWithFormat:@"%@", dictionary[@"followers_count"]];

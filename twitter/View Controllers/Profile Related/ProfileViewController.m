@@ -32,12 +32,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self clearPage];
+    
     [[APIManager shared] getPersonProfileWithId:self.userId andHandle:self.userHandle completion:^(Profile *profile, NSError *error) {
          if(error){
               NSLog(@"Error getting person's profile: %@", error.localizedDescription);
          }
          else{
              NSLog(@"Successfully got profile");
+             
+             [self revealPage];
              
              NSURL *url = [NSURL URLWithString:profile.profileImgUrl];
              NSData *urlData = [NSData dataWithContentsOfURL:url];
@@ -52,11 +56,29 @@
              self.numFollowingLabel.text = [profile.followingCount stringByAppendingString:@" Following"];
              self.numFollowersLabel.text = [profile.folowersCount stringByAppendingString:@" Followers"];
              self.descriptionLabel.text = profile.descriptText;
+             
          }
      }];
     
     [self fetchData];
 }
+
+- (void)clearPage {
+    self.nameLabel.alpha = 0;
+    self.handleLabel.alpha = 0;
+    self.descriptionLabel.alpha = 0;
+    self.numFollowersLabel.alpha = 0;
+    self.numFollowingLabel.alpha = 0;
+}
+
+- (void)revealPage {
+    self.nameLabel.alpha = 1;
+    self.handleLabel.alpha = 1;
+    self.descriptionLabel.alpha = 1;
+    self.numFollowersLabel.alpha = 1;
+    self.numFollowingLabel.alpha = 1;
+}
+
 
 - (void)fetchData {
     

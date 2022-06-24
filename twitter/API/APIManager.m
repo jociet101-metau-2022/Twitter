@@ -84,18 +84,46 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 
 - (void)getPersonProfileWithId:(NSString *)userId andHandle:userHandle completion:(void(^)(Profile *profile, NSError *error))completion {
     
-    NSDictionary *parameters = @{@"user_id":userId, @"screen_name":userHandle};
-    
-    // Create a GET Request
-    [self GET:@"1.1/users/show.json"
-       parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable profileDictionary) {
-           // Success
-        Profile *profile = [[Profile alloc]initWithDictionary:profileDictionary];
-        completion(profile, nil);
-       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-           // There was a problem
-           completion(nil, error);
-    }];
+    if (userId == nil && userHandle == nil) {
+        [[APIManager shared] getCredentialsWithCompletion:^(Profile* ownProfile, NSError* error) {
+                 if(error){
+                      NSLog(@"Error getting credentials: %@", error.localizedDescription);
+                 }
+                 else{
+                     NSLog(@"Successfully got credentials");
+                     NSDictionary *parameters = @{@"user_id":ownProfile.myId, @"screen_name":ownProfile.screenName};
+                     
+                     NSLog(@"%@", parameters);
+                     
+                     // Create a GET Request
+                     [self GET:@"1.1/users/show.json"
+                        parameters:(NSDictionary *)parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable profileDictionary) {
+                            // Success
+                         Profile *profile = [[Profile alloc]initWithDictionary:profileDictionary];
+                         completion(profile, nil);
+                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                            // There was a problem
+                            completion(nil, error);
+                     }];
+                 }
+             }];
+    }
+    else {
+        NSDictionary *parameters = @{@"user_id":userId, @"screen_name":userHandle};
+        
+        NSLog(@"%@", parameters);
+        
+        // Create a GET Request
+        [self GET:@"1.1/users/show.json"
+           parameters:(NSDictionary *)parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable profileDictionary) {
+               // Success
+            Profile *profile = [[Profile alloc]initWithDictionary:profileDictionary];
+            completion(profile, nil);
+           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+               // There was a problem
+               completion(nil, error);
+        }];
+    }
 }
 
 - (void)getCredentialsWithCompletion:(void (^)(Profile *, NSError *))completion {

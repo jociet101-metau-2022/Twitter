@@ -698,6 +698,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j54-bt-LvR">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.13725490870000001" green="0.1647058874" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.13725490870000001" green="0.1647058874" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="FTQ-G1-N2b" kind="relationship" relationship="viewControllers" id="1Yd-Wf-L0z"/>

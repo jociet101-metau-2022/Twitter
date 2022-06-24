@@ -15,6 +15,19 @@
 
     if (self) {
         self.profileImgUrl = dictionary[@"profile_image_url_https"];
+        
+        /*
+         profile_banner_url
+         screen_name
+         name
+         description
+         location
+         followers_count
+         friends_count  //following
+         statuses_count //number of tweets+retweets
+         favourites_count
+         */
+        
     }
     
     return self;

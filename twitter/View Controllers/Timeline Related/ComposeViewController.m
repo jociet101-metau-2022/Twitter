@@ -47,7 +47,7 @@
              
              NSURL *url = [NSURL URLWithString:profile.profileImgUrl];
              NSData *urlData = [NSData dataWithContentsOfURL:url];
-             [self.profileImage setImage:[UIImage imageWithData:urlData ]];
+             [self.profileImage setImage:[UIImage imageWithData:urlData]];
          }
      }];
 }

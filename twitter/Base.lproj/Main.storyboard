@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hKJ-HH-8tn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1512" y="157"/>
+            <point key="canvasLocation" x="-1319" y="296"/>
         </scene>
         <!--Home-->
         <scene sceneID="1Tv-nE-1AW">
@@ -746,7 +746,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="WxQ-Zh-GY1">
             <objects>
-                <tabBarController storyboardIdentifier="TabMasterController" automaticallyAdjustsScrollViewInsets="NO" id="gud-wy-u9k" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabMasterController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gud-wy-u9k" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="y03-sP-g9Q"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j54-bt-LvR">
@@ -763,7 +763,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5D-zW-TlB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="157"/>
+            <point key="canvasLocation" x="-336" y="296"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

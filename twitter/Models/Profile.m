@@ -15,19 +15,15 @@
 
     if (self) {
         self.profileImgUrl = dictionary[@"profile_image_url_https"];
-        
-        /*
-         profile_banner_url
-         screen_name
-         name
-         description
-         location
-         followers_count
-         friends_count  //following
-         statuses_count //number of tweets+retweets
-         favourites_count
-         */
-        
+        self.profileBannerUrl = dictionary[@"profile_banner_url"];
+        self.screenName = dictionary[@"screen_name"];
+        self.name = dictionary[@"name"];
+        self.descriptText = dictionary[@"description"];
+        self.location = dictionary[@"location"];
+        self.folowersCount = [NSString stringWithFormat:@"%@", dictionary[@"followers_count"]];
+        self.followingCount = [NSString stringWithFormat:@"%@", dictionary[@"friends_count"]];
+        self.tweetsCount = [NSString stringWithFormat:@"%@", dictionary[@"statuses_count"]];
+        self.likesCount = [NSString stringWithFormat:@"%@", dictionary[@"favourites_count"]];
     }
     
     return self;

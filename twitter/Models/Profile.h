@@ -15,6 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
 // MARK: Properties
 
 @property (nonatomic, strong) NSString *profileImgUrl;
+@property (nonatomic, strong) NSString *profileBannerUrl;
+@property (nonatomic, strong) NSString *screenName;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *descriptText;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString *folowersCount;
+@property (nonatomic, strong) NSString *followingCount;
+@property (nonatomic, strong) NSString *tweetsCount;
+@property (nonatomic, strong) NSString *likesCount;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

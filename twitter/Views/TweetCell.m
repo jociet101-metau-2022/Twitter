@@ -68,6 +68,8 @@
 
 - (void)refreshUI {
     
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     UIImage *tImg;
     
     if (self.tweet.favorited == YES) {

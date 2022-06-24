@@ -15,6 +15,7 @@
 #import "Tweet.h"
 #import "ComposeViewController.h"
 #import "TweetDetailsViewController.h"
+#import "ProfileViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, TweetCellDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -65,7 +66,6 @@
 }
 
 - (void)didTweet:(Tweet *)tweet {
-    NSLog(@"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndid tweet");
     [self fetchData];
 }
 
@@ -133,6 +133,13 @@
         Tweet* data = self.arrayOfTweets[indexPath.row];
         TweetDetailsViewController *detailVC = [segue destinationViewController];
         detailVC.incomingData = data;
+    }
+    else if ([segue.identifier isEqualToString:@"profileSegue"]) {
+        // Need to pass ID of tweet through here
+        ProfileViewController *profileVC = [segue destinationViewController];
+        User *user = sender;
+        profileVC.userId = user.myId;
+        profileVC.userHandle = user.screenName;
     }
 }
 

@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowersLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -32,12 +32,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[APIManager shared] getCredentialsWithCompletion:^(Profile* profile, NSError* error) {
+    [[APIManager shared] getPersonProfileWithId:self.userId andHandle:self.userHandle completion:^(Profile *profile, NSError *error) {
          if(error){
-              NSLog(@"Error getting credentials: %@", error.localizedDescription);
+              NSLog(@"Error getting person's profile: %@", error.localizedDescription);
          }
          else{
-             NSLog(@"Successfully got credentials");
+             NSLog(@"Successfully got profile");
              
              NSURL *url = [NSURL URLWithString:profile.profileImgUrl];
              NSData *urlData = [NSData dataWithContentsOfURL:url];
@@ -48,7 +48,7 @@
              [self.bannerImage setImage:[UIImage imageWithData:urlData2]];
              
              self.nameLabel.text = profile.name;
-             self.handleLabel.text = profile.screenName;
+             self.handleLabel.text = [@"@" stringByAppendingString:profile.screenName];
              self.numFollowingLabel.text = [profile.followingCount stringByAppendingString:@" Following"];
              self.numFollowersLabel.text = [profile.folowersCount stringByAppendingString:@" Followers"];
              self.descriptionLabel.text = profile.descriptText;

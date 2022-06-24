@@ -52,6 +52,29 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 
+Gif 1: User can login and loading page has twitter icon, Home timeline has pull to refresh, Infinite scrolling of tweets in timelines, Details view shown when press on tweet, Tweets can be favorited and retweeted
+https://user-images.githubusercontent.com/73032138/175749398-44923e30-fd81-4872-b2ce-116df25c2fe6.mov
+
+
+Gif 2: User can compose tweet from home timeline page, user can reply to tweet from details view
+https://user-images.githubusercontent.com/73032138/175749404-3656d69d-e2b6-41e3-b545-712fff588732.mov
+
+
+Gif 3: Number of characters in tweet is limited to 280 and user is not allowed to tweet if above the limit, Implemented mention timeline and profile page, Profile page has timeline
+https://user-images.githubusercontent.com/73032138/175749408-8a69367c-27ab-4d42-8ee8-2a148837a890.mov
+
+
+Gif 4: Undo favoriting and retweeting, links can be accessed in tweet
+https://user-images.githubusercontent.com/73032138/175749410-8a5d9d27-9eb0-4451-9a9e-2b9bc8902a71.mov
+
+
+Gif 5: Auto layout working based on change in orientation of device
+https://user-images.githubusercontent.com/73032138/175749414-6887ea00-0220-4b88-9db8-5d599cfdce89.mov
+
+
+Gif 6: User's profile page can be accessed by clicking on profile image on timeline view
+https://user-images.githubusercontent.com/73032138/175749647-5d5bfe81-1606-4bd0-82d2-f04c672de85b.mov
+
 
 ## Notes
 

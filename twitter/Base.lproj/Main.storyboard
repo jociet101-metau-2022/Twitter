@@ -627,23 +627,76 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13725490870000001" green="0.1647058874" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="135" id="10e-Ic-Rod" customClass="ProfileTweetCell">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="135"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ProfileTweetCell" rowHeight="165" id="8os-FI-EQH" customClass="ProfileTweetCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="165"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="10e-Ic-Rod" id="UJK-Nv-tSW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8os-FI-EQH" id="IZX-id-c99">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="165"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYo-6y-kY7">
-                                                    <rect key="frame" x="170" y="57" width="37" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08t-wH-mwS">
+                                                    <rect key="frame" x="8" y="10" width="60" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="iNy-m5-FeS"/>
+                                                        <constraint firstAttribute="width" constant="60" id="yYX-l4-cAx"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uU2-Ff-Dc3">
+                                                    <rect key="frame" x="76" y="25" width="302" height="115"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="257" id="NAB-Jx-EuM"/>
+                                                    </constraints>
+                                                    <string key="text">Every one of us has been where you are right now. This place, this is where we come when the monsters we face are too powerful or too plentiful… From the moment you stepped in here… you were never alone.</string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve Rogers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDy-6p-O96">
+                                                    <rect key="frame" x="76" y="8" width="94.5" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="94.5" id="h6D-Vk-nnL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@capamerica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-Cr-jSg">
+                                                    <rect key="frame" x="250.5" y="10" width="76.5" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3/21/06" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuU-ov-rwj">
+                                                    <rect key="frame" x="300" y="11" width="43" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="08t-wH-mwS" firstAttribute="leading" secondItem="IZX-id-c99" secondAttribute="leading" constant="8" id="Ays-3j-baI"/>
+                                                <constraint firstItem="nDy-6p-O96" firstAttribute="leading" secondItem="08t-wH-mwS" secondAttribute="trailing" constant="8" id="D3o-CP-yZK"/>
+                                                <constraint firstItem="JuU-ov-rwj" firstAttribute="leading" secondItem="fIS-Cr-jSg" secondAttribute="trailing" constant="8" id="NwB-Oc-XrN"/>
+                                                <constraint firstItem="uU2-Ff-Dc3" firstAttribute="leading" secondItem="08t-wH-mwS" secondAttribute="trailing" constant="8" id="Q6D-uY-eUq"/>
+                                                <constraint firstItem="fIS-Cr-jSg" firstAttribute="top" secondItem="IZX-id-c99" secondAttribute="top" constant="10" id="emy-g0-Qt9"/>
+                                                <constraint firstAttribute="bottom" secondItem="uU2-Ff-Dc3" secondAttribute="bottom" constant="25" id="etK-np-Pce"/>
+                                                <constraint firstItem="08t-wH-mwS" firstAttribute="top" secondItem="IZX-id-c99" secondAttribute="top" constant="8" id="f3e-Eo-ReE"/>
+                                                <constraint firstItem="JuU-ov-rwj" firstAttribute="top" secondItem="IZX-id-c99" secondAttribute="top" constant="10" id="iMK-m1-cwt"/>
+                                                <constraint firstItem="nDy-6p-O96" firstAttribute="bottom" secondItem="uU2-Ff-Dc3" secondAttribute="top" constant="1" id="jcc-Lf-5VC"/>
+                                                <constraint firstItem="nDy-6p-O96" firstAttribute="top" secondItem="IZX-id-c99" secondAttribute="top" constant="8" id="rWX-0o-0iR"/>
+                                                <constraint firstAttribute="trailing" secondItem="JuU-ov-rwj" secondAttribute="trailing" constant="7.5" id="sEP-cg-F6R"/>
+                                                <constraint firstAttribute="trailing" secondItem="uU2-Ff-Dc3" secondAttribute="trailing" constant="7.5" id="t7a-a4-Sn6"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="08t-wH-mwS" secondAttribute="bottom" constant="50" id="tgx-Ji-yD0"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                                        <color key="backgroundColor" red="0.13533385589999999" green="0.1626388584" blue="0.1889698776" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="JuU-ov-rwj" id="yIW-xa-Ath"/>
+                                            <outlet property="handleLabel" destination="fIS-Cr-jSg" id="Qtx-SS-sTw"/>
+                                            <outlet property="nameLabel" destination="nDy-6p-O96" id="JkJ-eZ-XcQ"/>
+                                            <outlet property="profileImage" destination="08t-wH-mwS" id="X8f-kx-jAc"/>
+                                            <outlet property="tweetLabel" destination="uU2-Ff-Dc3" id="VDv-1m-wOa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -713,7 +766,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L1G-YH-z3t"/>
+        <segue reference="XLc-mi-8LT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.29803922770000002" green="0.61960786580000005" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
@@ -727,9 +780,6 @@
         <image name="retweet-icon-1" width="87" height="71"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

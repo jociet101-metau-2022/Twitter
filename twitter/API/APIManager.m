@@ -82,6 +82,22 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
+- (void)getPersonTimelineWithId:(NSString *)userId completion:(void(^)(NSArray *tweets, NSError *error))completion {
+    
+    // Create a GET Request
+    [self GET:[NSString stringWithFormat:@"2/users/%@/tweets?tweet.fields=created_at", userId]
+       parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
+        NSLog(@"%@", tweetDictionaries);
+        
+           // Success
+           NSMutableArray *tweets = [Tweet smallTweetsWithArray:tweetDictionaries];
+           completion(tweets, nil);
+       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+           // There was a problem
+           completion(nil, error);
+    }];
+}
+
 - (void)getPersonProfileWithId:(NSString *)userId andHandle:userHandle completion:(void(^)(Profile *profile, NSError *error))completion {
     
     if (userId == nil && userHandle == nil) {

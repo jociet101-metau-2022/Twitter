@@ -14,6 +14,8 @@
     self = [super init];
 
     if (self) {
+        NSLog(@"DICTIONARY! %@", dictionary);
+        
         // Is this a re-tweet?
         NSDictionary *originalTweet = dictionary[@"retweeted_status"];
         if (originalTweet != nil) {
@@ -72,12 +74,48 @@
     return self;
 }
 
+- (instancetype)initWithSmallDictionary:(NSDictionary *)dictionary {
+    
+    self.text = dictionary[@"text"];
+    
+    // Format createdAt date string
+    NSString *createdAtOriginalString = dictionary[@"created_at"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // Configure the input format to parse the date string
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    // Convert String to Date
+    NSDate *date = [formatter dateFromString:createdAtOriginalString];
+    self.rawCreatedAt = date;
+    // Configure output format
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+    // Convert Date to String
+    self.createdAtString = [formatter stringFromDate:date];
+    
+    return self;
+}
+
 + (NSMutableArray *)tweetsWithArray:(NSArray *)dictionaries {
     NSMutableArray *tweets = [NSMutableArray array];
     for (NSDictionary *dictionary in dictionaries) {
         Tweet *tweet = [[Tweet alloc] initWithDictionary:dictionary];
         [tweets addObject:tweet];
     }
+    
+    return tweets;
+}
+
++ (NSMutableArray *)smallTweetsWithArray:(NSDictionary *)data {
+    NSLog(@"%@", data);
+    NSArray *dictionaries = data[@"data"];
+    
+    NSMutableArray *tweets = [[NSMutableArray alloc] init];
+    for (NSDictionary *dictionary in dictionaries) {
+        Tweet *tweet = [[Tweet alloc] initWithSmallDictionary:dictionary];
+        
+        [tweets addObject:tweet];
+    }
+    
     return tweets;
 }
 

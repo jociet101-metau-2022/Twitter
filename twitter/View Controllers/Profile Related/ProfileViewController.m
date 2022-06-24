@@ -9,6 +9,8 @@
 #import "ProfileViewController.h"
 #import "APIManager.h"
 #import "TweetCell.h"
+#import "ProfileTweetCell.h"
+#import "Tweet.h"
 
 @interface ProfileViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -32,6 +34,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     [self clearPage];
     
     [[APIManager shared] getPersonProfileWithId:self.userId andHandle:self.userHandle completion:^(Profile *profile, NSError *error) {
@@ -40,6 +45,8 @@
          }
          else{
              NSLog(@"Successfully got profile");
+             
+             self.profileInfo = profile;
              
              [self revealPage];
              
@@ -83,7 +90,8 @@
 - (void)fetchData {
     
     // Get timeline
-    [[APIManager shared] getUserTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+    
+    [[APIManager shared] getPersonTimelineWithId:@"1077637499827048448" completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.arrayOfTweets = (NSMutableArray*)tweets;
@@ -98,8 +106,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    ProfileTweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileTweetCell"];
     
+    cell.name = self.nameLabel.text;
+    cell.handle = self.handleLabel.text;
+    cell.profileImgUrl = self.profileInfo.profileImgUrl;
     cell.tweet = self.arrayOfTweets[indexPath.row];
     
     return cell;
@@ -113,7 +124,7 @@
     return 1;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -121,6 +132,5 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end

@@ -54,13 +54,13 @@
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             self.arrayOfTweets = (NSMutableArray*)tweets;
-            
+
             [self.tableView reloadData];
-            
+
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
-        
+
         [self.refreshControl endRefreshing];
     }];
 }

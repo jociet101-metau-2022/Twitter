@@ -17,6 +17,7 @@
 
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
 - (void)getUserTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
+- (void)getMentionTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion;
 - (void)getPersonTimelineWithId:(NSString *)userId completion:(void(^)(NSArray *tweets, NSError *error))completion;
 
 - (void)getPersonProfileWithId:(NSString *)userId andHandle:(NSString *)userHandle completion:(void(^)(Profile *profile, NSError *error))completion;

@@ -64,6 +64,8 @@
         self.nameWidthLabel.constant = 150;
     }
     
+    self.profileImage.layer.cornerRadius = 32;
+    
 }
 
 - (void)refreshUI {

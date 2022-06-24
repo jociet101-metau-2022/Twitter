@@ -68,6 +68,8 @@
          }
      }];
     
+    self.profileImage.layer.cornerRadius = 32;
+    
     [self fetchData];
 }
 

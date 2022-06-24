@@ -31,9 +31,9 @@ The following **stretch** features are implemented:
 - [x] Reply to any Tweet (**2 points**)
   - Replies should be prefixed with the username
   - The `reply_id` should be set when posting the tweet
-- [ ] See a character count when composing a Tweet (as well as a warning) (280 characters) (**1 point**)
-- [ ] Load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client
-- [ ] Click on a Profile image to reveal another user's profile page, including:
+- [x] See a character count when composing a Tweet (as well as a warning) (280 characters) (**1 point**)
+- [x] Load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client
+- [x] Click on a Profile image to reveal another user's profile page, including:
   - Header view: picture and tagline
   - Basic stats: #tweets, #following, #followers
 - [ ] Switch between **timeline**, **mentions**, or **profile view** through a tab bar (**3 points**)
@@ -45,16 +45,14 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to efficiently reuse code, for example, between the tweet cell on the home timeline and the tweet cell on a specific user's timeline.
+2. 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
@@ -68,7 +66,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2022] [Jocelyn Tseng]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

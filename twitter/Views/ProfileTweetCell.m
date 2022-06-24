@@ -36,6 +36,8 @@
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     [self.profileImage setImage:[UIImage imageWithData:urlData]];
     
+    self.profileImage.layer.cornerRadius = 32;
+    
 }
 
 @end

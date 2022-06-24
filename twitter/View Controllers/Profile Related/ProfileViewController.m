@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableArray* arrayOfTweets;
 @property (nonatomic, strong) Profile* profileInfo;
 
+@property (weak, nonatomic) IBOutlet UIView *profileView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -76,6 +77,7 @@
     self.descriptionLabel.alpha = 0;
     self.numFollowersLabel.alpha = 0;
     self.numFollowingLabel.alpha = 0;
+    self.profileView.alpha = 0;
 }
 
 - (void)revealPage {
@@ -84,6 +86,7 @@
     self.descriptionLabel.alpha = 1;
     self.numFollowersLabel.alpha = 1;
     self.numFollowingLabel.alpha = 1;
+    self.profileView.alpha = 1;
 }
 
 

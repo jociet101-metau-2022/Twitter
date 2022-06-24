@@ -79,18 +79,13 @@
     self.text = dictionary[@"text"];
     
     // Format createdAt date string
-    NSString *createdAtOriginalString = dictionary[@"created_at"];
+    NSString *createdAtOriginalString = [dictionary[@"created_at"] substringToIndex:19];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // Configure the input format to parse the date string
-    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    formatter.dateFormat = @"yyyy-MM-dd’T’hh:mm:ss";
     // Convert String to Date
     NSDate *date = [formatter dateFromString:createdAtOriginalString];
     self.rawCreatedAt = date;
-    // Configure output format
-    formatter.dateStyle = NSDateFormatterShortStyle;
-    formatter.timeStyle = NSDateFormatterNoStyle;
-    // Convert Date to String
-    self.createdAtString = [formatter stringFromDate:date];
     
     return self;
 }

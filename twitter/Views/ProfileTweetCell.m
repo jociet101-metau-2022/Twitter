@@ -7,6 +7,7 @@
 //
 
 #import "ProfileTweetCell.h"
+#import "DateTools.h"
 
 @implementation ProfileTweetCell
 
@@ -24,14 +25,15 @@
     _tweet = tweet;
     
     self.nameLabel.text = self.name;
-    self.handleLabel.text = [@"@" stringByAppendingString:self.handle];
+    self.handleLabel.text = self.handle;
     self.tweetLabel.text = self.tweet.text;
+    
+    NSLog([NSString stringWithFormat:@"\n\n\n\n\n\nDATE DATE DATE %@\n\n\n\n\n\n", self.tweet.rawCreatedAt]);
+
     
     // Use DateTools to get time ago of a tweet
     self.dateLabel.text = [self.tweet.rawCreatedAt shortTimeAgoSinceNow];
     
-    NSLog([NSString stringWithFormat:@"profile image url %@", self.profileImgUrl]);
-
     NSString *URLString = self.profileImgUrl;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];

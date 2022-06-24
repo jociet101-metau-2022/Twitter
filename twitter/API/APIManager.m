@@ -83,11 +83,17 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 }
 
 - (void)getPersonTimelineWithId:(NSString *)userId completion:(void(^)(NSArray *tweets, NSError *error))completion {
+        
+    NSString *theId = userId;
+    
+    if (userId == nil) {
+        theId = @"1077637499827048448";
+    }
     
     // Create a GET Request
-    [self GET:[NSString stringWithFormat:@"2/users/%@/tweets?tweet.fields=created_at", userId]
+    [self GET:[NSString stringWithFormat:@"2/users/%@/tweets?tweet.fields=created_at", theId]
        parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
-        NSLog(@"%@", tweetDictionaries);
+//        NSLog(@"%@", tweetDictionaries);
         
            // Success
            NSMutableArray *tweets = [Tweet smallTweetsWithArray:tweetDictionaries];

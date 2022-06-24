@@ -91,15 +91,15 @@
     
     // Get timeline
     
-    [[APIManager shared] getPersonTimelineWithId:@"1077637499827048448" completion:^(NSArray *tweets, NSError *error) {
+    [[APIManager shared] getPersonTimelineWithId:self.userId completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            NSLog(@"😎😎😎 Successfully loaded person timeline");
             self.arrayOfTweets = (NSMutableArray*)tweets;
             
             [self.tableView reloadData];
             
         } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            NSLog(@"😫😫😫 Error getting person timeline: %@", error.localizedDescription);
         }
     }];
 }

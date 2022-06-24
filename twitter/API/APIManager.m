@@ -91,7 +91,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }
     
     // Create a GET Request
-    [self GET:[NSString stringWithFormat:@"2/users/%@/tweets?tweet.fields=created_at", theId]
+    [self GET:[NSString stringWithFormat:@"2/users/%@/tweets?tweet.fields=created_at&max_results=100", theId]
        parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
 //        NSLog(@"%@", tweetDictionaries);
         

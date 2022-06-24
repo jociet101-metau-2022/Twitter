@@ -84,10 +84,10 @@ static NSString * const baseURLString = @"https://api.twitter.com";
 
 - (void)getMentionTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
     
-    NSDictionary *parameters = @{@"tweet_mode":@"extended", @"count":@100};
+    NSDictionary *parameters = @{@"count":@100};
     
     // Create a GET Request
-    [self GET:@"1.1/statuses/mention_timeline.json"
+    [self GET:@"1.1/statuses/mentions_timeline.json"
        parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries) {
            // Success
            NSMutableArray *tweets = [Tweet tweetsWithArray:tweetDictionaries];
